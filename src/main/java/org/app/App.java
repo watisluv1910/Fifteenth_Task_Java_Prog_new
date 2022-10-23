@@ -2,6 +2,9 @@ package org.app;
 
 
 import org.firstSubtask.Calculator;
+import org.secondSubtask.Catalog;
+
+import java.io.IOException;
 
 public class App {
 
@@ -12,29 +15,24 @@ public class App {
             Integer navigationVar = MyInput.inputInteger("""
                     Navigation menu:
                     Enter 1 to run first subtask.
-                    Enter 2 to run second subtask and etc. up to 4.
+                    Enter 2 to run second subtask and etc. up to 3.
                     Enter any other digit to stop the program.""", Integer::valueOf);
 
             switch (navigationVar) {
-                case 1: {
+                case 1 -> {
                     Calculator calculator = new Calculator();
-                    break;
                 }
-                case 2: {
+                case 2 -> {
+                    try {
+                        Catalog catalog = new Catalog();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                case 3 -> {
 
-                    break;
                 }
-                case 3: {
-
-                    break;
-                }
-                case 4: {
-
-                    break;
-                }
-                default:
-                    System.exit(1);
-                    break;
+                default -> System.exit(1);
             }
         }
     }

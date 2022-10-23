@@ -27,11 +27,7 @@ public class Calculator extends JFrame {
     };
 
     public Calculator() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createFrame();
-            }
-        });
+        SwingUtilities.invokeLater(Calculator::createFrame);
     }
 
     private static void createFrame() {

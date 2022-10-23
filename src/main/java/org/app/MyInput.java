@@ -1,5 +1,8 @@
 package org.app;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -32,6 +35,28 @@ public class MyInput {
                 System.exit(1);
             }
         }
+    }
+
+    public static String readFileLine(String fileName, Integer lineNumber)
+            throws IOException {
+
+        String str = new String(
+                Files.readAllBytes(Paths.get(fileName)));
+
+        String line = "";
+
+        try {
+
+            line = str.split("\n")[lineNumber];
+            return line;
+
+        } catch (ArrayIndexOutOfBoundsException ex) {
+
+            System.err.println("Wrong line number.");
+            System.exit(1);
+        }
+
+        return line;
     }
 }
 
