@@ -3,6 +3,7 @@ package org.app;
 
 import org.firstSubtask.Calculator;
 import org.secondSubtask.Catalog;
+import org.thirdSubtask.Menu;
 
 import java.io.IOException;
 
@@ -30,7 +31,7 @@ public class App {
                     }
                 }
                 case 3 -> {
-
+                    Menu menu = new Menu();
                 }
                 default -> System.exit(1);
             }

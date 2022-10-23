@@ -66,6 +66,7 @@ public class Calculator extends JFrame {
         frame.pack(); // Window will be sized according to the size of its components
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         try {
             UIManager.setLookAndFeel(

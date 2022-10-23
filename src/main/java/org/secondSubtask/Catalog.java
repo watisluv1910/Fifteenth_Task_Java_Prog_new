@@ -24,13 +24,6 @@ public class Catalog extends JFrame {
 
     public Catalog() throws HeadlessException, IOException {
 
-        if (GraphicsEnvironment.isHeadless()) {
-
-            throw new HeadlessException();
-        }
-
-        SwingUtilities.invokeLater(Catalog::createFrameAndGUI);
-
         countries = new ArrayList<>(){
             {
                 add("Australia");
@@ -50,14 +43,21 @@ public class Catalog extends JFrame {
                 }
             }
         };
+
+        if (GraphicsEnvironment.isHeadless()) {
+
+            throw new HeadlessException();
+        }
+
+        SwingUtilities.invokeLater(Catalog::createFrameAndGUI);
     }
 
     private static void addComponents(Container pane) {
 
         JPanel searchPanel = new JPanel(new GridLayout(1, 2));
 
-        JLabel label = new JLabel("Select a county: ");
-        label.setForeground(Color.PINK);
+        JLabel label = new JLabel("Select a country: ");
+        label.setForeground(Color.RED);
         searchPanel.add(label);
 
         comboBox = new JComboBox<>(countries.toArray());
@@ -83,6 +83,7 @@ public class Catalog extends JFrame {
         JFrame frame = new JFrame("Catalog");
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         addComponents(frame.getContentPane());
 
